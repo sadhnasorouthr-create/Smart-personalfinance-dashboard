@@ -1,0 +1,182 @@
+:root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --danger: #e74c3c;
+    --success: #27ae60;
+    --bg: #f4f7f6;
+    --card-bg: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--primary);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Dashboard Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns equal size */
+    gap: 25px;
+    max-width: 1000px;
+    width: 100%;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Header */
+header {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+/* Balance Cards */
+.balance-box {
+    text-align: center;
+    background: var(--primary);
+    color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
+}
+
+.balance-val {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.summary > div {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.income-box { background: rgba(39, 174, 96, 0.9); }
+.expense-box { background: rgba(231, 76, 60, 0.9); }
+
+/* Form Styling */
+form label {
+    font-weight: 600;
+    display: block;
+    margin-top: 15px;
+    color: #555;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #f9f9f9;
+}
+
+.btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    margin-top: 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn:hover { background: #2980b9; }
+
+/* Right Column - Graph & List */
+.card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.chart-container {
+    position: relative;
+    height: 300px; /* Fixed height for graph */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* History List */
+ul.list {
+    list-style: none;
+    max-height: 350px;
+    overflow-y: auto;
+    margin-top: 10px;
+    padding-right: 5px;
+}
+
+li {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    position: relative;
+    align-items: center;
+}
+
+/* Side borders for visual cue */
+li.minus { border-left: 5px solid var(--danger); }
+li.plus { border-left: 5px solid var(--success); }
+
+/* Delete Button */
+.delete-btn {
+    background: var(--danger);
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 10px;
+    opacity: 0; /* Hidden initially */
+    transition: opacity 0.3s;
+}
+
+li:hover .delete-btn { opacity: 1; }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+}

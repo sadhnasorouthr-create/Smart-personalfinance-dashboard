@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Finance Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-grid">
+        <header>
+            <h2>💰 Smart Finance Dashboard</h2>
+        </header>
+
+        <div class="left-col">
+            <div class="balance-box">
+                <h4>Current Balance</h4>
+                <h1 id="balance" class="balance-val">₹0.00</h1>
+                <div class="summary">
+                    <div class="income-box">
+                        <small>Income</small>
+                        <p id="money-plus">+₹0.00</p>
+                    </div>
+                    <div class="expense-box">
+                        <small>Expense</small>
+                        <p id="money-minus">-₹0.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Add New Transaction</h3>
+            <form id="form">
+                <label>Transaction Type</label>
+                <select id="type">
+                    <option value="expense">Expense (Kharcha)</option>
+                    <option value="income">Income (Kamayi)</option>
+                </select>
+
+                <label>Category</label>
+                <select id="category">
+                    <option value="Food">Food 🍔</option>
+                    <option value="Travel">Travel 🚕</option>
+                    <option value="Shopping">Shopping 🛍️</option>
+                    <option value="Bills">Bills 💡</option>
+                    <option value="Entertainment">Entertainment 🎬</option>
+                    <option value="Salary">Salary 💵</option>
+                    <option value="Freelance">Freelance 💻</option>
+                    <option value="Other">Other ❓</option>
+                </select>
+                
+                <label>Amount (₹)</label>
+                <input type="number" id="amount" placeholder="Enter amount..." required />
+                
+                <button class="btn">Add Transaction</button>
+            </form>
+        </div>
+
+        <div class="right-col">
+            <div class="card">
+                <h3>Expense Analysis</h3>
+                <div class="chart-container">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 20px;">Recent History</h3>
+            <ul id="list" class="list">
+                </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
